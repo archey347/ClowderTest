@@ -5,6 +5,9 @@
 *.so
 *.dylib
 
+# Cache
+.cache/*
+
 # Test binary, built with `go test -c`
 *.test
 
