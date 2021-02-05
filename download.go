@@ -86,13 +86,13 @@ func unzip(name string) error {
 	return nil
 }
 
-func getTests(base url.URL, name string, cache bool) ([]test, error) {
+func downloadTests(base url.URL, name string, cache bool) error {
 
 	if _, err := os.Stat(".cache"); os.IsNotExist(err) {
 		err = os.Mkdir(".cache", os.ModePerm)
 
 		if err != nil {
-			return nil, err
+			return err
 		}
 	}
 
@@ -107,7 +107,7 @@ func getTests(base url.URL, name string, cache bool) ([]test, error) {
 		if !cache {
 			err := os.RemoveAll(testDir)
 			if err != nil {
-				return nil, err
+				return err
 			}
 			download = true
 		}
@@ -119,7 +119,7 @@ func getTests(base url.URL, name string, cache bool) ([]test, error) {
 
 		if err != nil {
 			fmt.Print("FAILED!")
-			return nil, err
+			return err
 		}
 
 		fmt.Println("done.")
@@ -129,13 +129,11 @@ func getTests(base url.URL, name string, cache bool) ([]test, error) {
 
 		if err != nil {
 			fmt.Println("FAILED!")
-			return nil, err
+			return err
 		}
 
 		fmt.Println("done.")
 	}
 
-	// Delete if no cache
-
-	return nil, nil
+	return nil
 }
