@@ -21,6 +21,7 @@ func help() {
 	fmt.Println("  -t                 The amount of threads to use when ")
 	fmt.Println("                     running the tests. Defaults to 1")
 	fmt.Println(" --no-cache          Always fetch a new copy of the tests")
+	fmt.Println(" -r                  Rescan the tests scored in cache.")
 	fmt.Println("  -b                 The base URL for Kattis.")
 	fmt.Println("                     Defaults to https://open.kattis.com/")
 }
